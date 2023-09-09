@@ -29,8 +29,8 @@ function App() {
     const button = e.currentTarget;
     const currentUnit = button.innerText.slice(1);
 
-    const isCelsius = currentUnit === "C";
-    button.innerText = isCelsius ? "°F" : "°C";
+    const isCelsius = currentUnit === "F";
+    button.innerText = isCelsius ? "°C" : "°F";
     setUnits(isCelsius ? "metric" : "imperial");
   };
 
@@ -61,11 +61,18 @@ function App() {
                 <h3>{`${weather.name}, ${weather.country}`}</h3>
                 <img src={weather.iconURL} alt="weatherIcon" />
                 <h3>{weather.description}</h3>
+
               </div>
               <div className="temperature">
-                <h1>{`${weather.temp.toFixed()} °${
-                  units === "metric" ? "C" : "F"
-                }`}</h1>
+                <h1>{`${weather.temp.toFixed()} °${units === "metric" ? "C" : "F"
+                  }`}</h1>
+              </div>
+              <div>
+                <h3> {`Pressure:
+                ${weather.pressure} hPa`}</h3>
+
+                <h3> {`Humidity:
+                ${weather.humidity} %`}</h3>
               </div>
             </div>
 

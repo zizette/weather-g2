@@ -10,24 +10,24 @@ const Descriptions = ({ weather, units }) => {
   const windUnit = units === "metric" ? "m/s" : "m/h";
 
   const cards = [
- 
+
     {
       id: 1,
       //icon: <MdCompress />,
-      title: "pressure",
-      data: weather.pressure,
-      unit: "hPa",
+      title: "Feels Like",
+      data: weather.feels_like,
+      unit: "ºC",
     },
     {
       id: 2,
       //icon: <MdOutlineWaterDrop />,
-      title: "humidity",
-      data: weather.humidity,
-      unit: "%",
+      title: "Max",
+      data: weather.temp_max,
+      unit: "ºC",
     },
     {
       id: 3,
-     // icon: <FaWind />,
+      // icon: <FaWind />,
       title: "wind speed",
       data: weather.speed.toFixed(),
       unit: windUnit,
