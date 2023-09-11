@@ -1,3 +1,4 @@
+
 const API_KEY = "16d33432f4dbb14ae50868c0c49179f6";
 
 const makeIconURL = (iconId) => `./${iconId}@.png`;
@@ -5,7 +6,7 @@ const makeIconURL = (iconId) => `./${iconId}@.png`;
 const getFormattedWeatherData = async (city, units = "metric") => {
   const URL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=${units}`;
   const makeIconURL = (iconId) =>
-  `https://openweathermap.org/img/wn/${iconId}@2x.png`;
+    `https://openweathermap.org/img/wn/${iconId}@2x.png`;
   const data = await fetch(URL)
     .then((res) => res.json())
     .then((data) => data);

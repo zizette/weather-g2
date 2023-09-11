@@ -1,12 +1,13 @@
 import hotBg from "./assets/hot.jpg";
 import coldBg from "./assets/cold.jpg";
+import niceBg from "./assets/xxckub95.png";
 import Descriptions from "./components/Descriptions";
 //import iconURL from "./public/icons";
 import { useEffect, useState } from "react";
 import { getFormattedWeatherData } from "./weatherService";
 
 function App() {
-  const [city, setCity] = useState("Paris");
+  const [city, setCity] = useState("Beirut");
   const [weather, setWeather] = useState(null);
   const [units, setUnits] = useState("metric");
   const [bg, setBg] = useState(hotBg);
@@ -17,9 +18,14 @@ function App() {
       setWeather(data);
 
       // dynamic bg
-      const threshold = units === "metric" ? 20 : 60;
-      if (data.temp <= threshold) setBg(coldBg);
-      else setBg(hotBg);
+      const threshold0 = units === "metric" ? 5 : 17;
+      if (data.temp <= threshold0) setBg(coldBg);
+      else {
+        const threshold = units === "metric" ? 26 : 60;
+        if (data.temp <= threshold) setBg(niceBg);
+        else setBg(hotBg);
+      }
+
     };
 
     fetchWeatherData();
@@ -52,8 +58,9 @@ function App() {
                 type="text"
                 name="city"
                 placeholder="Enter City..."
+              // value=""
               />
-              <button onClick={(e) => handleUnitsClick(e)}>°F</button>
+              <button onClick={(e) => handleUnitsClick(e)}>°C</button>
             </div>
 
             <div className="section section__temperature">
